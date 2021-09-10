@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true">
+  <div class="survey-entry regular set-margin-top">
+    <div class="survey-entry-content">
+      <div class="flexible-row img-row">
+        <img src="../../assets/img/home/covid.png" srcset="../../assets/img/home/covid.png" alt="Person with thermometer"></div>
+      <div class="flexible-row content-row">
+        <div class="table-section">
+          <div role="heading" aria-level="2" class="table-section-label regular" tabindex="-1">{{ 'Home.Title' | translate }}</div>
+          <div>
+            <div class="assessment-info-list">
+              <div class="flexible-row assessment-info-item">
+                <div class="table-icon">
+                  <ion-icon name="list" role="img" color="primary" class="md hydrated icon-size" aria-label="checkmark circle"></ion-icon>
+                </div>
+                <p>{{ 'Home.HeaderOne' | translate}}
+                  <span class="learn-more">
+                    <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" class="anchor-blue" target="_blank">{{ 'Home.LearnMore' | translate}}</a>
+                  </span>
+                </p>
+              </div>
+              <div class="divider-line"></div>
+              <div class="flexible-row assessment-info-item">
+                <div class="table-icon">
+                  <ion-icon color="primary" class="md hydrated icon-size" name="hand-left"></ion-icon>
+                </div>
+                <div>
+                  <p>{{ 'Home.HeaderTwo' | translate}}</p>
+                </div>
+              </div>
+              <div class="divider-line"></div>
+              <div class="flexible-row assessment-info-item">
+                <div class="table-icon">
+                  <ion-icon name="checkmark-circle" role="img" color="primary" class="md hydrated icon-size" aria-label="checkmark circle"></ion-icon>
+                </div>
+                <div>
+                  <p>{{ 'Home.HeaderThree' | translate}}</p>
+                  <p class="legal-disclaimer">{{ 'Home.HeaderThreeSub' | translate}}</p>
+                  <p class="terms">
+                    <a href="https://www.termsfeed.com/terms-conditions/c289738c09817cef2c4b4adeeee73ddc" class="anchor-blue" target="_blank">{{ 'Home.SeeMore' | translate}}</a>
+                  </p>
+                </div>
+              </div>
+              <div class="divider-line"></div>
+            </div>
+            <div class="button-rows">
+              <div class="flexible-row button-row">
+                <button class="bar primary" tabindex="0" (click)="goToQuestionnairePage('self')" ontouchstart="void(0)" role="button"><button type="button" tabindex="-1"></button>{{ 'Home.Start' | translate}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cc-selector">
+      <p>Select Language</p>
+      <input id="english" type="radio" name="credit-card" [(ngModel)]="creditCard" value="en" (change)="selectLangService.setLang(creditCard);" />
+      <label class="drinkcard-cc en-ln" for="english"></label>
+      <input id="spanish" type="radio" name="credit-card" [(ngModel)]="creditCard" value="sp" (change)="selectLangService.setLang(creditCard);" />
+      <label class="drinkcard-cc sp-ln" for="spanish"></label>
+      <input id="chinese" type="radio" name="credit-card" [(ngModel)]="creditCard" value="ch" (change)="selectLangService.setLang(creditCard);" />
+      <label class="drinkcard-cc ch-ln" for="chinese"></label>
+    </div>
+  </div>
+
+</ion-content>

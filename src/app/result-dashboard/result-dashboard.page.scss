@@ -1,0 +1,63 @@
+.set-margin-top {
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.table-section-margin {
+  margin-left: 10%;
+}
+
+.your-response-heading {
+  font-size: 20px;
+  padding: 10%;
+}
+
+.quetion-title {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+td,
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.td-bc {
+  background: #f1f1f1;
+  width: 15%;
+  border: 1px dashed gray;
+}
+
+.td-label {
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+}
+
+.td-input {
+  margin: 10px;
+}
+
+.border-left {
+  border-left: 1px dashed #d6d0d0;
+}
+
+
+.border-buttom {
+  border-bottom: 1px dashed #d6d0d0;
+}
+
+.table-space {
+  border-collapse: separate;
+  border-spacing: 2px 8px;
+}

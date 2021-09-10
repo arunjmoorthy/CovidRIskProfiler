@@ -1,0 +1,122 @@
+<ion-content [fullscreen]="true">
+    <div class="survey-entry regular set-margin-top">
+        <div class="survey-entry-content">
+            <div class="flexible-row img-row">
+                <img src="../../assets/img/home/covid.png" srcset="../../assets/img/home/covid.png"
+                    alt="Person with thermometer">
+            </div>
+            <div class="flexible-row content-row">
+                <div class="table-section table-section-margin">
+                    <h1 class="your-response-heading">{{ 'Result.response' | translate }}</h1>
+                    <ul *ngFor="let resultItem of resultValue;">
+                        <li>{{resultItem}}</li>
+                    </ul>
+                </div>
+            </div>
+            <ion-item class="quetion-title">
+                <ion-label position="floating">{{ 'Result.name' | translate }}</ion-label>
+                <ion-input [(ngModel)]="userName"></ion-input>
+            </ion-item>
+            <ion-item class="quetion-title">
+                {{ 'Result.DOB' | translate }}
+                <input type="date" [(ngModel)]="dateOfBirth" name="birthday" style="border:0;margin-left: 5%;"
+                    [max]="maxDate" placeholder="Select Date">
+            </ion-item>
+            <ion-item class="quetion-title">
+                <ion-label position="floating">{{ 'Result.Comments' | translate }}</ion-label>
+                <ion-textarea [(ngModel)]="userComment"></ion-textarea>
+            </ion-item>
+            <ion-item class="quetion-title">
+                {{ 'Result.CovidTest' | translate }}
+                <input type="radio" (change)="covide19Selected($event)" id="Yes" name="covid19" value="Yes"
+                    style="border:0;margin-left: 5%;">
+                <label for="male">{{ 'Result.CovidTestYes' | translate }}</label><br>
+                <input type="radio" (change)="covide19Selected($event)" id="No" name="covid19" value="No"
+                    style="margin-left: 25px;">
+                <label for="female">{{ 'Result.CovidTestNo' | translate }}</label>
+            </ion-item>
+            <ion-item class="quetion-title" *ngIf="isCovidDateDisplay">
+                {{ 'Result.CovidTestDate' | translate }}
+                <input type="date" [(ngModel)]="covideDOB" name="birthday" style="border:0;margin-left: 5%;"
+                    [max]="maxDate" placeholder="Select Date">
+            </ion-item>
+
+            <ion-item class="quetion-title">
+                <table style="width:100%" class="table-space">
+                    <tr class="text-center border-buttom">
+                        <th class="text-left" style="width: 40%;">{{ 'Result.FeelingQuestion' | translate }}</th>
+                        <th class="border-left" style="width: 15%;">{{ 'Result.0' | translate }}</th>
+                        <th class="border-left" style="width: 15%;">{{ 'Result.1' | translate }}</th>
+                        <th class="border-left" style="width: 15%;">{{ 'Result.2' | translate }}</th>
+                        <th class="border-left" style="width: 15%;">{{ 'Result.3' | translate }}</th>
+                    </tr>
+                    <tr class="text-center border-buttom">
+                        <td class="text-left">{{ 'Result.PositiveQuestion' | translate }}</td>
+                        <td class="border-left" class="td-bc" (click)="selectPositiveValue('0')">
+                            <input type="radio" (change)="selectPositiveValue('0')" id="0" name="feelingPositive"
+                                value="0" [(ngModel)]="feelingPositive" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> 0</label><br>
+                        </td>
+                        <td class="border-left" class="td-bc" (click)="selectPositiveValue('1')">
+                            <input type="radio" (change)="selectPositiveValue('1')" id="1" name="feelingPositive"
+                                value="1" [(ngModel)]="feelingPositive" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> +1</label><br>
+                        </td>
+                        <td class="border-left" class="td-bc" (click)="selectPositiveValue('2')">
+                            <input type="radio" (change)="selectPositiveValue('2')" id="2" name="feelingPositive"
+                                value="2" [(ngModel)]="feelingPositive" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> +2</label><br>
+                        </td>
+                        <td class="border-left" class="td-bc" (click)="selectPositiveValue('3')">
+                            <input type="radio" (change)="selectPositiveValue('3')" id="3" name="feelingPositive"
+                                value="3" [(ngModel)]="feelingPositive" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> +3</label><br>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="text-left">{{ 'Result.NegativeQuestion' | translate }}</td>
+                        <td class="border-left" class="td-bc" (click)="selectNegativeValue('0')">
+                            <input type="radio" (change)="selectNegativeValue('0')" id="0" name="feelingNegative"
+                                value="0" [(ngModel)]="feelingNegative" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> 0</label><br>
+                        </td>
+                        <td class="border-left" class="td-bc" (click)="selectNegativeValue('1')">
+                            <input type="radio" (change)="selectNegativeValue('1')" id="1" name="feelingNegative"
+                                value="1" [(ngModel)]="feelingNegative" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> +1</label><br>
+                        </td>
+                        <td class="border-left" class="td-bc" (click)="selectNegativeValue('2')">
+                            <input type="radio" (change)="selectNegativeValue('2')" id="2" name="feelingNegative"
+                                value="2" [(ngModel)]="feelingNegative" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> +2</label><br>
+                        </td>
+                        <td class="border-left" class="td-bc" (click)="selectNegativeValue('3')">
+                            <input type="radio" (change)="selectNegativeValue('3')" id="3" name="feelingNegative"
+                                value="3" [(ngModel)]="feelingNegative" class="td-input"
+                                style="border:0;margin-left: 5%;">
+                            <label for="male" class="td-label"> +3</label><br>
+                        </td>
+                    </tr>
+                </table>
+            </ion-item>
+
+            <ion-item class="quetion-title">
+                <ion-label position="floating">{{ 'Result.email' | translate }}</ion-label>
+                <ion-input [(ngModel)]="emailId"></ion-input>
+            </ion-item>
+            <ion-col>
+                <div><button class="bar primary button-width set-margin-top" (click)="submitUserInfo()" tabindex="0"
+                        ontouchstart="void(0)" role="button"><button type="button" tabindex="-1"></button>{{
+                        'Result.sendInfo' | translate }}</button>
+                </div>
+            </ion-col>
+        </div>
+    </div>
+</ion-content>
